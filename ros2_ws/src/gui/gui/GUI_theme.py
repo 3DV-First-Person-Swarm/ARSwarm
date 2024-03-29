@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import ctypes as ct
+import os
 
 dark1 = "#17181a"
 dark2 = "#202123"
@@ -35,6 +36,9 @@ class window(tk.Tk):
         self.title(name)
         self.resizable(True, True)
         self.configure(cursor="left_ptr", bg='black')
+        print("FOLDER: , ", os.getcwd())
+        img = tk.Image("photo", file=os.path.join(os.getcwd(), "src", "gui", "images", "app_image.png"))
+        self.tk.call('wm', 'iconphoto', self._w, img)
 
         style = ttk.Style()
         style.configure('Front.TFrame', background=dark2)
