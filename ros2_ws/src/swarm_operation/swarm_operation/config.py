@@ -9,21 +9,21 @@ PATTERN_GUI = False  # Simple GUI to switch between patterns for demonstrations 
 
 #################### Communication ####################
 NUM_CFS = 2  # Total number of drones
-START_IDX_CFS = 17    # ID number of first drone
+START_IDX_CFS = 22 # ID number of first drone
 
 CFS_PER_RADIO = 8    # Number of drones per radio
-RADIO_CHANNELS = 20, 40, 60, 80, 100    # Communication channels for each radio
+RADIO_CHANNELS = 20, 40, 60, 80, 100  # Communication channels for each radio
 
 #################### Bounds ####################
 LH_HIGH_RISK_BOUNDS = (    # [m] High risk zone outside which the drone will land the moment it loses lighthouse positioning
-    (-1.55, 1.65),          # x
-    (-1.8, 1.65),         # y
-    (0.0, 2.0)             # z
+    (-10.55, 10.65),          # x
+    (-10.8, 10.65),         # y
+    (00.0, 20.0)             # z
 )
 ABS_BOUNDS = (             # [m] Absolute bounds outside which the drone will emergency land
-    (-1.6, 1.7),         # x
-    (-1.85, 1.7),         # y
-    (0.0, 2.5)             # z
+    (-10.6, 10.7),         # x
+    (-10.85, 10.7),         # y
+    (-10.0, 20.5)             # z
 )
 ENABLE_LH_HIGH_RISK = False    # Enable high risk zone
 ENABLE_BOUNDS = True    # Enable absolute bounds
@@ -39,7 +39,9 @@ LANDING_MAX_TRIES = 5    # Number of times the drone will try to land on a pad b
 VIO_POS_DICT = {
     18: [ 0.0, 0.0, 0.0], # 1 0 0 
     20: [-1.0, 0.0, 0.0],
-    21: [ 0.0, 1.0, 0.0]
+    21: [ 0.0, 1.0, 0.0],
+    22: [ 0.0, 1.0, 0.0],
+    23: [ 0.0, 0.0, 0.0]
 }
 
 #################### Update rates ####################
@@ -67,7 +69,7 @@ PARAMETER_LOG_RATE = 0.5    # [s] Rate at which the drone's parameters are logge
 
 #################### Collision Avoidance ####################
 FULL, OPERATIONS, OFF = "full", "operations", "off"
-CA_MODE = FULL
+CA_MODE = OFF
     # "full": always use collision avoidance
     # "operations": don't use collision avoidance during swarming, only at take off and returning
     # "off": fully disable collision avoidance
