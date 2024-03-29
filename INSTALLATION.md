@@ -33,6 +33,36 @@ You can remove the `WindowsBuild` directory in `collision_avoidance`.
 
 This package is built on ROS2 humble. Visit their [installation page](https://docs.ros.org/en/humble/) for more information on the installation process.
 
+Dependencies list next to ROS2:
+- colcon-common-extensions
+- cflib 
+- zmq 
+- numpy 
+- pyyaml
+- cfclient
+
+Install using:
+```bash
+pip3 install colcon-common-extensions \
+                numpy \
+                cflib \
+                zmq \
+                pyyaml \
+                cfclient
+```
+
+cflib dependencies:
+```bash
+apt-get update && apt-get install -y \
+    x11-apps \
+    xterm \
+    libxcb-xinerama0 \
+    libxcb-cursor0 \
+    libxkbcommon-x11-0 \
+    usbutils \
+    && rm -rf /var/lib/apt/lists/*
+```
+
 To control the Crazyflies through pyhton, cflib is used. Follow the [installation instructions](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/installation/install/) and set the [usb permissions](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/installation/usb_permissions/). To have the usb permissions setup every time, add the following lines to your `.bashrc`:
 ```bash
 sudo /etc/init.d/udev restart
